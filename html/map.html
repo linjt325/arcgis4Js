@@ -5,7 +5,19 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
   <title>Simple Map</title>
-  <link rel="stylesheet" href="https://js.arcgis.com/3.21/esri/css/esri.css">
+  <!--<link rel="stylesheet" href="https://js.arcgis.com/3.21/esri/css/esri.css">-->
+  <link rel="stylesheet"
+	href="http://10.10.28.218:8080/arcgis_js_api/library/3.19/3.19/dijit/themes/tundra/tundra.css" />
+<link rel="stylesheet"
+	href="http://10.10.28.218:8080/arcgis_js_api/library/3.19/3.19/dijit/themes/claro/claro.css" />
+<link rel="stylesheet"
+	href="http://10.10.28.218:8080/arcgis_js_api/library/3.19/3.19/esri/themes/calcite/dijit/calcite.css" />
+<link rel="stylesheet"
+	href="http://10.10.28.218:8080/arcgis_js_api/library/3.19/3.19/esri/css/esri.css" />
+
+  <link rel="stylesheet" href="../css/map.css" />
+  <link rel="stylesheet" href="../plugins/easyui/easyui.css" />
+  <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" />
   <style>
     html,
     body,
@@ -15,7 +27,8 @@
       padding: 0;
     }
   </style>
-  <script src="https://js.arcgis.com/3.21/"></script>
+  <script	src="http://10.10.28.218:8080/arcgis_js_api/library/3.19/3.19/init.js"></script>
+  <!--<script src="https://js.arcgis.com/3.21/"></script>-->
   <script src="../js/common/jquery-1.10.1.js"></script>
   <script src="../js/common/gisUtil.js"></script>
   <script src="../js/map.js"></script>
@@ -24,6 +37,60 @@
 
 <body>
   <div id="map"></div>
+  <div id="infowindow"></div>
+  <div style="left:200px;position:absolute;top:300px;background: #fff;">
+   <div id="templatePicker"></div>
+   <div id="editorDiv"></div>
+  </div>
+  <div class="toolbar" id="toolbar">
+      <div class="pannel-box">
+        <ul>
+          <li>
+             <div> 
+              <i class="fa fa-search"></i>
+              <span>查询</span>
+             </div> 
+          </li>
+          <li class="left-edit"> 
+            <div>
+              <i class="fa fa-edit"></i><span>编辑</span>
+            </div>
+            <ul class="left-drop-ul">
+                <li class="left-drop-li">要素编辑</li>
+                <li class="left-drop-li"></li>
+                <li class="left-drop-li"></li>
+                <li class="left-drop-li"></li>
+              </ul>
+          </li>
+          <li><i class="fa"></i><span></span></li>
+          <li><i class="fa"></i><span></span></li>
+        </ul>
+      </div>
+  </div>
+    <div class="coordinate"><button id="coord-btn">拾取坐标</button><input id="coord-input"></input></div>
+    <!--右侧面板-->
+  <div class="right-pannel" id="right-pannel">
+    <div class="pannel-box">
+      <div class="switch">
+        <i class="fa fa-navicon"></i>
+        <span>基础操作</span>
+      </div>
+      <div class="pannel-box">
+        <div class="base-dev">
+          <ul class="base-dev-li" id="base-dev-layer">
+            <li id="zoomInBtn"><i class="icon-hook bg_fangda"></i><span>放大</span></li>
+            <li id="zoomOutBtn"><i class="icon-hook bg_suoxiao"></i><span>缩小</span></li>
+            <li id="panBtn"><i class="icon-hook bg_pingyi"></i><span>平移</span></li>
+            <li id="fullExtentBtn"><i class="icon-hook bg_quantu"></i><span>全图</span></li>
+            <li id="measureLengthBtn"><i class="icon-hook bg_cejuli"></i><span>测距离</span></li>
+            <li id="measureAreaBtn"><i class="icon-hook bg_cemianji"></i><span>测面积</span></li>
+            <li id="clearBtn"><i class="icon-hook bg_qingkong"></i><span>清空</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="over"></div>
+  </div>
 </body>
 
 </html>
