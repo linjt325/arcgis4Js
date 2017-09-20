@@ -30,7 +30,7 @@
       var gisPoint=new Point(gisCenter);
 
       map = new Map("map", {
-        //basemap: "topo",  //使用arcgis提供的基础地图
+        basemap: "topo",  //使用arcgis提供的基础地图
         center:gisPoint, // longitude, latitude
         zoom: 13,
         logo : false,
